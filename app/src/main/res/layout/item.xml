@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="entity"
+            type="com.example.counterbutton.MyEntity" />
+    </data>
+<RelativeLayout
+    android:layout_margin="5dp"
+    android:orientation="horizontal"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:hint="name"
+        android:text="@{entity.name}"
+        android:id="@+id/name"
+        android:layout_centerVertical="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <include
+        app:entity="@{entity}"
+        android:id="@+id/include"
+        android:layout_alignParentRight="true"
+        layout="@layout/counter"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"/>
+
+</RelativeLayout>
+</layout>

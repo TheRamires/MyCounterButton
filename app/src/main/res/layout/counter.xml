@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="entity"
+            type="com.example.counterbutton.MyEntity" />
+    </data>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".MainActivity" >
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/button_price"
+        android:layout_gravity="center"
+        android:visibility="@{entity.visibleCounter ? View.INVISIBLE : View.VISIBLE, default=visible}"
+        android:layout_marginHorizontal="10dp"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/include"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <RelativeLayout
+        android:visibility="@{entity.visibleCounter ? View.VISIBLE : View.INVISIBLE, default=gone}"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp" >
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/bubble_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/dark_button"
+            android:text="Счётчик мышек"
+            android:textColor="#FFFFFF" />
+
+        <FrameLayout
+            android:layout_toRightOf="@+id/bubble_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginRight="2dp"
+            android:layout_marginTop="2dp"
+            android:background="@drawable/count_bubble"
+            android:gravity="center"
+            android:padding="4dp" >
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvNotification"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{String.valueOf(entity.counter)}"
+                android:textColor="#FFFFFF"
+                android:textSize="4pt"
+                android:textStyle="bold" />
+        </FrameLayout>
+    </RelativeLayout>
+</FrameLayout>
+</layout>
